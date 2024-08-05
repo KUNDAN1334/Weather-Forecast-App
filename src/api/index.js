@@ -1,4 +1,12 @@
-const baseURL="https://api.weatherapi.com/v1/current.json?key=602db27ee3834729a2f130435240408"
-export const getWeaherDataForCity=(city)=>{
-    return fetch(`${baseURL}&q=${city}`).then((res)=>res.json())
-}
+const baseURL =
+  "https://api.weatherapi.com/v1/current.json?key=da6b8158e38c47f7b3081213240508";
+
+  export const getWeatherDataForCity = async (city) => {
+   const response = await fetch(`${baseURL}&q=${encodeURIComponent(city)}&aqi=yes`);
+   return await response.json();
+ };
+ 
+ export const getWeatherDataForLocation = async (lat, lon) => {
+   const response = await fetch(`${baseURL}&q=${lat},${lon}&aqi=yes`);
+   return await response.json();
+ };
